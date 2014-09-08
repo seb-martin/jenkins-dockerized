@@ -4,6 +4,7 @@ CONTAINER_NAME=jenkins
 PORT=80
 
 DATA_DIR=
+M2_DIR=~/.m2
 
 
 build: 
@@ -20,7 +21,13 @@ ifeq ("$(wildcard $(DATA_DIR))", "")
 	@exit 1
 endif
 
-	@docker run -d --name="$(CONTAINER_NAME)" -v $(DATA_DIR):/root/.jenkins -p $(PORT):80 $(IMG_TAG)
+ifeq ("$(wildcard $(M2_DIR))", "")
+	@echo "Répertoire M2 non spécifié ou inexistant"
+	@echo "Précisez le répertoire M2 à utiliser en définissant la variable d'environnement M2_DIR"
+	@exit 1
+endif
+
+	@docker run -d --name="$(CONTAINER_NAME)" -v $(DATA_DIR):/root/.jenkins -v $(M2_DIR):/root/.m2 -p $(PORT):80 $(IMG_TAG)
 
 stop:
 	@echo "$@ $(CONTAINER_NAME):$(IMG_TAG)"
