@@ -1,4 +1,4 @@
-IMG_TAG=sebmartin/jenkins-dockerized
+IMG_TAG=sebmartin/jenkins
 CONTAINER_NAME=jenkins
 
 PORT=80

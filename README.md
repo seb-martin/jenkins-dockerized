@@ -4,18 +4,18 @@ Une image docker de l'application web [Jenkins CI](http://jenkins-ci.org/).
 
 ## Docker Hub Registry
 
-Le repo Docker [sebmartin/jenkins-dockerized](https://registry.hub.docker.com/u/sebmartin/jenkins-dockerized) est paramétré pour construire automatiquement l'image Docker à partir du repo GitHub [seb-martin/jenkins-dockerized](https://github.com/seb-martin/jenkins-dockerized).
+Le repo Docker [sebmartin/jenkins](https://registry.hub.docker.com/u/sebmartin/jenkins) est paramétré pour construire automatiquement l'image Docker à partir du repo GitHub [seb-martin/jenkins-dockerized](https://github.com/seb-martin/jenkins-dockerized).
 
 ### Pull du repository
 
 ```
-docker pull sebmartin/jenkins-dockerized
+docker pull sebmartin/jenkins
 ```
 
 ### Exécution du conteneur
 
 ```
-docker run --name="jenkins" -v /path/to/data/directory:/root/.jenkins -v /path/to/m2/directory:/root/.m2 -p 83:80 -d sebmartin/jenkins-dockerized
+docker run --name="jenkins" -v /path/to/data/directory:/root/.jenkins -v /path/to/m2/directory:/root/.m2 -p 83:80 -d sebmartin/jenkins
 ```
 
 Ajuster les paramètres de la commande :
